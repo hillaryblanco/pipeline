@@ -4,7 +4,6 @@ Este es el proyecto de:
 
 - Hillary Blanco Meneses. B81148.
 - Johnnixia Valdes Cespedes. C07997
-- Maia Torres Castro. C07821
 
 
 Esta es la documentación del proyecto de programación de IE0405 - Modelos Probabilísticos de Señales y Sistemas.
