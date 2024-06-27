@@ -37,20 +37,8 @@ def cargar_datos_task():
                 longitude = temblor["longitude"],
                 depth = temblor["depth"],
                 mag = temblor["mag"],
-                magType = temblor["magType"],
-                nst = temblor["nst"],
-                gap = temblor["gap"],
-                dmin = temblor["dmin"],
-                rms = temblor["rms"],
-                net = temblor["net"],
-                #updated = datetime.strptime(temblor["updated"], "%Y-%m-%dT%H:%M:%S.%fZ"),
                 place = temblor["place"],
                 type = temblor["type"],
-                horizontalError = temblor["horizontalError"],
-                depthError = temblor["depthError"],
-                magError = temblor["magError"],
-                magNst = temblor["magNst"],
-                status = temblor["status"],
                 locationSource = temblor["locationSource"],
                 magSource = temblor["magSource"]
             )
@@ -72,7 +60,7 @@ def media_task():
     plt.ylabel('Magnitud')
     plt.title('Grafico de media')
     plt.legend()
-    plt.savefig('media_plot.png')
+    plt.savefig('./docs/img/media_plot.png')
     plt.clf()
 
     return "¡Calculo de la media exitoso!"
@@ -90,7 +78,7 @@ def variance_task():
     plt.ylabel('Magnitud')
     plt.title('Grafico de varianza')
     plt.legend()
-    plt.savefig('varianza_plot.png')
+    plt.savefig('./docs/img/varianza_plot.png')
     plt.clf()
 
     return "¡Calculo de la varianza exitoso!"
@@ -109,7 +97,7 @@ def standard_deviation_task():
     plt.ylabel('Magnitud')
     plt.title('Data Points con Barras de Error de Desviación Estandar')
     plt.legend()
-    plt.savefig('desviacion_estandar_plot.png')
+    plt.savefig('./docs/img/desviacion_estandar_plot.png')
     plt.clf()
 
     return "¡Calculo de la desviación estandar exitoso!"
@@ -132,7 +120,7 @@ def kurtosis_inclinacion_task():
     plt.title(f'Kurtosis: {kurt:.2f}, Inclinación: {inclinacion:.2f}')
     plt.xlabel('Magnitud')
     plt.legend()
-    plt.savefig('kurtosis_plot.png')
+    plt.savefig('./docs/img/kurtosis_plot.png')
     plt.clf()
 
     return "¡Calculo de kurtosis exitoso!"
@@ -145,7 +133,7 @@ def kurtosis_inclinacion_task():
 app.conf.beat_schedule = {
     "test-cargar-datos-task": {
         "task": "tasks.cargar_datos_task",
-        "schedule": timedelta(seconds=period),
+        "schedule": timedelta(minutes=period),
     },
     "test-media-task": {
         "task": "tasks.media_task",
